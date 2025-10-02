@@ -7,6 +7,8 @@ use App\Models\EmployeeDocument;
 use App\Models\Attendance;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\Lead;
 use Illuminate\Http\Request;
 use App\Models\SalarySlip;
 use Carbon\Carbon;
@@ -62,12 +64,33 @@ class Home extends Controller
         return view('login', ['view_type' => 'admin']);
     }
 
+    // public function login(Request $request)
+    // {
+    //     $credentials = $request->only('email', 'password');
+
+    //     if (Auth::attempt($credentials)) {
+    //         session(['user_type' => "admin"]);
+
+    //         return redirect()->intended('dashboard');
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'Invalid credentials.',
+    //     ]);
+    // }
+
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $email = $request->input('email');
+        $password = $request->input('password');
 
-        if (Auth::attempt($credentials)) {
-            session(['user_type' => "admin"]);
+        // Query the users table directly
+        $user = DB::table('users')->where('email', $email)->first();
+
+        if ($user && $user->password === $password) {
+            // Manually log in the user (if needed)
+            session(['user_type' => 'admin']);
+            session(['user_id' => $user->id]);
 
             return redirect()->intended('dashboard');
         }
@@ -107,8 +130,9 @@ class Home extends Controller
             ->first();
 
         $employeeCount = Employee::count(); // Equivalent to SELECT COUNT(*) FROM public.employees
+        $leadsCount = Lead::count();
 
-        return view('dashboard', compact('punches', 'employeeCount'));
+        return view('dashboard', compact('punches', 'employeeCount', 'leadsCount'));
     }
 
     public function employees()
@@ -480,6 +504,28 @@ class Home extends Controller
         return view('employee.slip', compact('slip'));
     }
 
+    public function leads()
+    {
+        $leads = Lead::all();
+        return view('leads', compact('leads'));
+    }
+
+    public function createLead(Request $request)
+    {
+        $validated = $request->validate([
+            'company_name' => 'required|string|max:255',
+            'contact_person' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'mobile' => 'nullable|string|max:20',
+            'address' => 'nullable|string',
+            'details' => 'nullable|string',
+            'status' => 'required|in:open,contacted,proposal_sent,negotiation,deal_done,lost,not_serviceable',
+        ]);
+
+        $lead = Lead::create($validated);
+
+        return redirect()->back()->with('success', 'Lead added successfully.');
+    }
 
     // public function generateSalarySlip($employeeId, $month)
     // {

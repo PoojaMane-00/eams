@@ -125,3 +125,15 @@ $(document).ready(function () {
         },
     });
 });
+
+$(document).ready(function () {
+    $("#leadTable").DataTable({
+        pageLength: 10,
+        lengthChange: false,
+        searching: true,
+        ordering: true,
+        language: {
+            search: "Search Lead:",
+        },
+    });
+});

@@ -92,6 +92,12 @@
                                 </span>
                             </a>
                         </li>
+                        <li><a href="{{route('leads')}}" class="waves-effect {{ request()->routeIs('leads', 'leads.create') ? 'active' : '' }}">
+                                <i class="mdi mdi-comment-text"></i>
+                                <span>Leads
+                                </span>
+                            </a>
+                        </li>
 
                     </ul>
                 </div>

@@ -39,3 +39,6 @@ Route::post('/get-punch-by-date', [Home::class, 'getPunchByDate'])->name('attend
 
 // To update punch data
 Route::post('/update-punch', [Home::class, 'updatePunch'])->name('attendance.updatePunch');
+// Route::post('/create-lead', [Home::class, 'createLead'])->name('leads.create');
+Route::match(['get', 'post'], '/create-lead', [Home::class, 'createLead'])->name('leads.create');
+Route::match(['get', 'post'], '/leads', [Home::class, 'leads'])->name('leads');

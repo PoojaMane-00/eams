@@ -47,22 +47,13 @@
         ->first();
         @endphp
         <div class="row"><!-- Column -->
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
-                        <h6 class="mb-1">Total Employees</h6>
-                        <h2 class="fw-bold mb-0">{{ $employeeCount }}</h2>
-                    </div>
-                </div>
-            </div>
-
 
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <a href="{{ route('attendance') }}" style="text-decoration: none;">
                     <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
                             <h6 class="mb-1">Manage Attendance</h6>
-                            <h2 class="fw-bold mb-0">→</h2> <!-- Optional icon or placeholder for visual balance -->
+                            <h2 class="fw-bold mb-0"><i class="mdi mdi-account-check"></i></h2> <!-- Optional icon or placeholder for visual balance -->
                         </div>
                     </div>
                 </a>
@@ -71,28 +62,48 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <a href="{{ route('employees') }}" style="text-decoration: none;">
                     <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
-                            <h6 class="mb-1">Manage Profiles</h6>
-                            <h2 class="fw-bold mb-0">→</h2> <!-- Optional icon or placeholder for visual balance -->
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
+                            <h6 class="mb-1">Manage Employees</h6>
+                            <h2 class="fw-bold mb-0"><i class="mdi mdi-account-settings-variant"></i> </h2> <!-- Optional icon or placeholder for visual balance -->
                         </div>
                     </div>
                 </a>
             </div>
 
-
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <a href="{{ route('leads') }}" style="text-decoration: none;">
+                    <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
+                            <h6 class="mb-1">Manage Leads</h6>
+                            <h2 class="fw-bold mb-0"><i class="mdi mdi-comment-multiple-outline"></i> </h2> <!-- Optional icon or placeholder for visual balance -->
+                        </div>
+                    </div>
+                </a>
+            </div>
 
             <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="card m-b-30">
-                    <div class="card-body">
-                        <div class="d-flex flex-row">
-                            <div class="col-3 align-self-center">
-                                <div class="round"><i class="mdi mdi-glassdoor"></i></div>
-                            </div>
-                            <div class="col-9 align-self-center">
-                                <!-- <button id="punchOutBtn" class="btn btn-sm btn-danger float-end" style="margin-left: 25px;">Punch Out</button>
-                                <div style="margin-left: 25px;">Out: <span id="outTime">{{ $punches && $punches->punch_out ? \Carbon\Carbon::parse($punches->punch_out)->format('H:i') : '00:00' }}</span></div> -->
-                            </div>
-                        </div>
+                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
+                        <h6 class="mb-1">Total Employees</h6>
+                        <h2 class="fw-bold mb-0">{{ $employeeCount }}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
+                        <h6 class="mb-1">Total Clients</h6>
+                        <h2 class="fw-bold mb-0">{{ $leadsCount }}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
+                        <h6 class="mb-1">Total Leads</h6>
+                        <h2 class="fw-bold mb-0">{{ $leadsCount }}</h2>
                     </div>
                 </div>
             </div>
