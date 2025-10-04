@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <title>SBMS - Admin Dashboard</title>
+    <title>EAMS - Admin Dashboard</title>
     <meta content="Admin Dashboard" name="description">
     <meta content="Pooja Mane" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +43,7 @@
             <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect"><i class="ion-close"></i></button>
             <!-- LOGO -->
             <div class="topbar-left">
-                <div class="text-center"><a href="index.html" class="logo"><i class="mdi mdi-assistant"></i> SBMS</a>
+                <div class="text-center"><a href="index.html" class="logo"><i class="mdi mdi-assistant"></i> EAMS</a>
                     <!-- <a href="index.html" class="logo"><img src="assets/images/logo.png" height="24" alt="logo"></a> --></div>
             </div>
             <div class="sidebar-inner slimscrollleft">
@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         @endif
-                        <li><a href="{{route('slip')}}" class="waves-effect {{ request()->routeIs('slip', 'employee.slip') ? 'active' : '' }}">
+                        <!-- <li><a href="{{route('slip')}}" class="waves-effect {{ request()->routeIs('slip', 'employee.slip') ? 'active' : '' }}">
                                 <i class="mdi mdi-cash-multiple"></i>
                                 <span>Salary Slip
                                 </span>
@@ -97,7 +97,7 @@
                                 <span>Leads
                                 </span>
                             </a>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </div>
@@ -151,7 +151,7 @@
 
                 @yield('content')
 
-                <footer class="footer">© 2025 SBMS by Pooja Mane</footer>
+                <footer class="footer">© 2025 EAMS by Pooja Mane</footer>
             </div><!-- End Right content here -->
         </div><!-- END wrapper --><!-- jQuery  -->
         <!-- <script src="{{ asset('assets/js/jquery.min.js') }}"></script> -->

@@ -42,3 +42,6 @@ Route::post('/update-punch', [Home::class, 'updatePunch'])->name('attendance.upd
 // Route::post('/create-lead', [Home::class, 'createLead'])->name('leads.create');
 Route::match(['get', 'post'], '/create-lead', [Home::class, 'createLead'])->name('leads.create');
 Route::match(['get', 'post'], '/leads', [Home::class, 'leads'])->name('leads');
+
+// Route::match(['get', 'post', '/employees.destroy', [Home::class], 'deleteEmp'])->name('employees.destroy');
+Route::delete('/destroy/{id}', [Home::class, 'deleteEmp'])->name('destroy');

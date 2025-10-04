@@ -7,7 +7,7 @@
                 <div class="page-title-box">
                     <div class="btn-group float-right">
                         <ol class="breadcrumb hide-phone p-0 m-0">
-                            <li class="breadcrumb-item"><a href="#">SBMS</a></li>
+                            <li class="breadcrumb-item"><a href="#">EAMS</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -46,8 +46,7 @@
         ->whereDate('date', $today)
         ->first();
         @endphp
-        <div class="row"><!-- Column -->
-
+        <div class="row">
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <a href="{{ route('attendance') }}" style="text-decoration: none;">
                     <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
@@ -71,98 +70,15 @@
             </div>
 
             <div class="col-md-6 col-lg-6 col-xl-3">
-                <a href="{{ route('leads') }}" style="text-decoration: none;">
+                <a href="{{ route('employees') }}" style="text-decoration: none;">
                     <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
-                            <h6 class="mb-1">Manage Leads</h6>
-                            <h2 class="fw-bold mb-0"><i class="mdi mdi-comment-multiple-outline"></i> </h2> <!-- Optional icon or placeholder for visual balance -->
+                            <h6 class="mb-1">Total Employees</h6>
+                            <h2 class="fw-bold mb-0">{{ $employeeCount }}</h2> <!-- Optional icon or placeholder for visual balance -->
                         </div>
                     </div>
                 </a>
             </div>
-
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
-                        <h6 class="mb-1">Total Employees</h6>
-                        <h2 class="fw-bold mb-0">{{ $employeeCount }}</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
-                        <h6 class="mb-1">Total Clients</h6>
-                        <h2 class="fw-bold mb-0">{{ $leadsCount }}</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="card text-white mb-4" style="background: linear-gradient(135deg, #667eea, #764ba2); border: none;">
-                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 120px;">
-                        <h6 class="mb-1">Total Leads</h6>
-                        <h2 class="fw-bold mb-0">{{ $leadsCount }}</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Calender view -->
-            <!-- <div class=" card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <button id="prevMonth" class="btn btn-outline-primary btn-sm">Previous</button>
-                        <h5 id="calendarTitle" class="mb-0"></h5>
-                        <button id="nextMonth" class="btn btn-outline-primary btn-sm">Next</button>
-                    </div>
-
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                @foreach(['Sun','Mon','Tue','Wed','Thu','Fri','Sat'] as $day)
-                                <th>{{ $day }}</th>
-                                @endforeach
-                            </tr>
-                        </thead>
-                        <tbody id="calendarBody">
-            </tbody>
-            </table>
-        </div>
-    </div> -->
-            <!-- <div class="card m-2">
-                <div class="card-body">
-                    <div class="col">
-                        <div class="row" style="padding: 2px;">
-                            <button class="btn btn-success btn-sm"></button>&nbsp; Present
-                        </div>
-                        <div class="row" style="padding: 2px;">
-                            <button class="btn btn-warning btn-sm"></button>&nbsp; Half Day
-                        </div>
-                        <div class="row" style="padding: 2px;">
-                            <button class="btn btn-danger btn-sm"></button>&nbsp; Leave
-                        </div>
-                        <br>
-                        <div class="text-primary">
-                            <strong> Select Date:</strong><br>
-                            In Time:
-                            <div id="intime">
-                                {{ $punches && $punches->punch_in ? \Carbon\Carbon::parse($punches->punch_in)->format('H:i') : '00:00' }}
-                            </div>
-                            <br>
-                            Out Time:
-                            <div id="outtime">
-                                {{ $punches && $punches->punch_out ? \Carbon\Carbon::parse($punches->punch_out)->format('H:i') : '00:00' }}
-                            </div>
-                            <br>
-                            Total Hours:
-                            <div id="total">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
         </div>
     </div><!-- container -->
 </div><!-- Page content Wrapper -->

@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15"><a href="index.html" class="logo logo-admin"><img src="assets/images/logo.png" height="24" alt="logo"></a></h3>
                 <div class="p-3">
-                    <form class="form-horizontal" action="https://mannatthemes.com/SBMS/vertical/index.html">
+                    <form class="form-horizontal" action="https://mannatthemes.com/EAMS/vertical/index.html">
                         <div class="form-group row">
                             <div class="col-12"><input class="form-control" type="email" required="" placeholder="Email"></div>
                         </div>

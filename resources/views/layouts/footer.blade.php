@@ -7,7 +7,7 @@
     <meta
         name="viewport"
         content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
-    <title>SBMS - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>EAMS - Responsive Bootstrap 4 Admin Dashboard</title>
     <meta content="Admin Dashboard" name="description" />
     <meta content="Mannatthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

@@ -58,26 +58,10 @@ class Home extends Controller
         return view('employee.login', ['view_type' => 'employee']);
     }
 
-
     public function admin()
     {
         return view('login', ['view_type' => 'admin']);
     }
-
-    // public function login(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
-
-    //     if (Auth::attempt($credentials)) {
-    //         session(['user_type' => "admin"]);
-
-    //         return redirect()->intended('dashboard');
-    //     }
-
-    //     return back()->withErrors([
-    //         'email' => 'Invalid credentials.',
-    //     ]);
-    // }
 
     public function login(Request $request)
     {
@@ -129,7 +113,7 @@ class Home extends Controller
             ->whereDate('date', $today)
             ->first();
 
-        $employeeCount = Employee::count(); // Equivalent to SELECT COUNT(*) FROM public.employees
+        $employeeCount = Employee::count();
         $leadsCount = Lead::count();
 
         return view('dashboard', compact('punches', 'employeeCount', 'leadsCount'));
@@ -305,6 +289,22 @@ class Home extends Controller
 
         return redirect()->route('employees')->with('success', 'Employee added successfully!');
     }
+
+    public function deleteEmp($id)
+    {
+        $employee = Employee::find($id);
+
+        if (!$employee) {
+            // Option 1: Redirect with error message
+            return redirect()->route('employees')->with('error', 'Employee not found!');
+        }
+
+        $employee->delete();
+
+        return redirect()->route('employees')->with('success', 'Employee deleted successfully!');
+    }
+
+
 
     // Helper method to upload and save a single document
     private function uploadDocument($request, $field, $employee)
@@ -526,31 +526,6 @@ class Home extends Controller
 
         return redirect()->back()->with('success', 'Lead added successfully.');
     }
-
-    // public function generateSalarySlip($employeeId, $month)
-    // {
-    //     $employee = Employee::findOrFail($employeeId);
-
-    //     // Example salary components — replace with actual logic or DB values
-    //     $basic = 30000;
-    //     $hra = 10000;
-    //     $allowances = 5000;
-    //     $deductions = 4000;
-    //     $net = $basic + $hra + $allowances - $deductions;
-
-    //     $slip = SalarySlip::create([
-    //         'employee_id' => $employee->id,
-    //         'salary_month' => $month,
-    //         'basic_salary' => $basic,
-    //         'hra' => $hra,
-    //         'allowances' => $allowances,
-    //         'deductions' => $deductions,
-    //         'net_salary' => $net,
-    //     ]);
-
-    //     return view('slip', compact('slip'));
-    // }
-
 
     public function logout()
     {

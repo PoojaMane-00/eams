@@ -7,7 +7,7 @@
                 <div class="page-title-box">
                     <div class="btn-group float-right">
                         <ol class="breadcrumb hide-phone p-0 m-0">
-                            <li class="breadcrumb-item"><a href="#">SBMS / </a></li>
+                            <li class="breadcrumb-item"><a href="#">EAMS / </a></li>
                             <h4 class="page-title">Dashboard {{ $userId }}</h4>
                         </ol>
                     </div>
