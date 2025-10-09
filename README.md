@@ -1,6 +1,6 @@
 # 🧑‍💼 EAMS - Employee Attendance Management System
 
-EAMS is a Laravel-based web application designed to streamline employee management and attendance tracking. It provides a robust admin interface for managing employee records and a user-friendly portal for employees to update their profiles, upload documents, and mark attendance.
+EAMS is a Laravel-based web application designed to streamline employee management and attendance tracking. It provides a robust admin interface for managing employee records and a user-friendly portal for employees to update their profiles, upload documents and mark attendance.
 
 ---
 
